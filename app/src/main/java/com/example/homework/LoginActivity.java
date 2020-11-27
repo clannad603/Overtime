@@ -25,7 +25,7 @@ private CheckBox rememberPass;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Button button1=(Button) findViewById(R.id.set);
+        Button button1=(Button) findViewById(R.id.Button_set);
      button1.setOnClickListener(new View.OnClickListener() {
          @Override
           public void onClick(View v) {
@@ -33,14 +33,14 @@ private CheckBox rememberPass;
              startActivity(intent);
          }
     });
-        ImageButton button2=(ImageButton) findViewById(R.id.wei);
+        ImageButton button2=(ImageButton) findViewById(R.id.ImageButton_wei);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(LoginActivity.this,"腾讯微博不是凉了吗",Toast.LENGTH_SHORT).show();
             }
         });
-        ImageButton button3=(ImageButton) findViewById(R.id.tx);
+        ImageButton button3=(ImageButton) findViewById(R.id.ImageButton_tx);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,9 +49,9 @@ private CheckBox rememberPass;
         });
         rememberPass=(CheckBox) findViewById(R.id.remember_pass);
         pref=getSharedPreferences("login",MODE_PRIVATE);
-        accountEdit=(EditText)findViewById(R.id.account);
-        passwordEdit=(EditText)findViewById(R.id.password);
-        login=(Button)findViewById(R.id.login);
+        accountEdit=(EditText)findViewById(R.id.EditText_account);
+        passwordEdit=(EditText)findViewById(R.id.EditText_password);
+        login=(Button)findViewById(R.id.Button_login);
         boolean isRemember=pref.getBoolean("remember_password",false);
         if(isRemember){
             String account=pref.getString("account","");
