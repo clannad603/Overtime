@@ -19,7 +19,7 @@ public class Registered extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registered);
-        ImageButton button2 = (ImageButton) findViewById(R.id.button2);
+        ImageButton button2 = (ImageButton) findViewById(R.id.ImageButton_button2);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -27,10 +27,10 @@ public class Registered extends BaseActivity {
                 startActivity(intent);
             }
         });
-        Button set = (Button) findViewById(R.id.rset);
-        account = (EditText) findViewById(R.id.raccount);
-        password1 = (EditText) findViewById(R.id.r0password);
-        spassword = (EditText) findViewById(R.id.r1password);
+        Button set = (Button) findViewById(R.id.Button_rset);
+        account = (EditText) findViewById(R.id.EditText_account1);
+        password1 = (EditText) findViewById(R.id.EditText_r0password);
+        spassword = (EditText) findViewById(R.id.EditText_r1password);
         set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
