@@ -16,6 +16,7 @@ import java.util.List;
 
 public class MainActivity extends BaseActivity {
 private List<Fruit>fruitList=new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +29,7 @@ private List<Fruit>fruitList=new ArrayList<>();
         FruitAdapter adapter=new FruitAdapter(fruitList);
             recyclerView.setAdapter(adapter);
         Button forceoffline=(Button)findViewById(R.id.force_offline);
+
         forceoffline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

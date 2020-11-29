@@ -2,8 +2,10 @@ package com.example.homework;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 
 public class Registered extends BaseActivity {
     private EditText account,password1,spassword;
+    private MyDatabaseHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +39,15 @@ public class Registered extends BaseActivity {
             public void onClick(View v) {
                 SharedPreferences.Editor editor = getSharedPreferences("data", MODE_PRIVATE).edit();
                 editor.putString("name", account.getText().toString());
+//                SQLiteDatabase db=dbHelper.getWritableDatabase();
+//                ContentValues values=new ContentValues();
+//                values.put("user",account.getText().toString());
                 if(password1.getText().toString().equals(spassword.getText().toString())){
-                editor.putString("password", password1.getText().toString());}
+//                    values.put("password",password1.getText().toString());
+//                    db.insert("User",null,values);
+//                    values.clear();
+                editor.putString("password", password1.getText().toString());
+                    }
                 else{
                     Toast.makeText(Registered.this,"两次输入不一致",Toast.LENGTH_SHORT).show();
                 }

@@ -2,8 +2,12 @@ package com.example.homework;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -20,7 +24,7 @@ private Button login;
 private SharedPreferences pref;
 private SharedPreferences.Editor editor;
 private CheckBox rememberPass;
-
+ private MyDatabaseHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,9 +69,32 @@ private CheckBox rememberPass;
             public void onClick(View v) {
                 String account=accountEdit.getText().toString();//get the edit
                 String password=passwordEdit.getText().toString();
-                SharedPreferences pre = getSharedPreferences("data", MODE_PRIVATE);
+//                SharedPreferences pre = getSharedPreferences("data", MODE_PRIVATE);
+//                SQLiteDatabase db=dbHelper.getWritableDatabase();
 
-                if(account.equals(pre.getString("name", "10086"))&&password.equals(pre.getString("password", "123456"))){
+               // if(account.equals(pre.getString("name", "10086"))&&password.equals(pre.getString("password", "123456"))){
+//             @SuppressLint("Recycle") Cursor cursor=db.query("User",null,null,null,null,null,null);
+//             if(cursor.moveToFirst()) {
+//                 do {
+//                     if(account.equals(cursor.getString(cursor.getColumnIndex("user")))&&password.equals(cursor.getString(cursor.getColumnIndex("password")))){
+//                         editor=pref.edit();
+//                         if(rememberPass.isChecked()){
+//                             editor.putBoolean("remember_password",true);
+//                             editor.putString("account",account);
+//                             editor.putString("password",password);
+//                         }else{
+//                             editor.clear();
+//                         }
+//                         editor.apply();
+//                         Intent intent=new Intent(LoginActivity.this,MainActivity.class);
+//                         startActivity(intent);
+//                         finish();
+//                     }else{
+//                         Toast.makeText(LoginActivity.this,"密码或账号无效",Toast.LENGTH_SHORT).show();}
+//                 }while(cursor.moveToNext());
+//             }
+             SharedPreferences pre = getSharedPreferences("data", MODE_PRIVATE);
+             if(account.equals(pre.getString("name", "10086"))&&password.equals(pre.getString("password", "123456"))){
                     editor=pref.edit();
                     if(rememberPass.isChecked()){
                         editor.putBoolean("remember_password",true);
